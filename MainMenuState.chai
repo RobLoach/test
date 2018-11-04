@@ -1,0 +1,29 @@
+class MainMenuState {
+
+	def MainMenuState() {
+		this.image := resources["logo"]
+	}
+
+	def enter() {
+		// Nothing.
+	}
+
+	def exit() {
+		// Nothing.
+	}
+
+	def draw() {
+		love.graphics.draw(this.image, love.graphics.getWidth() / 2.0f - this.image.getWidth() / 2.0f, love.graphics.getHeight() / 2.0f - this.image.getHeight() / 2.0f)
+	}
+
+	def update(delta) {
+		// Nothing.
+	}
+
+	def load() {
+		// Nothing.
+	}
+	def joystickpressed(button) {
+		states.set("game")
+	}
+}

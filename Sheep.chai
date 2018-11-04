@@ -1,0 +1,45 @@
+class Sheep {
+	def Sheep() {
+		this.image := resources["sheep"]
+		this.width = this.image.getWidth()
+		this.height = this.image.getHeight()
+		this.reset()
+		this.platform := Platform(this.x, this.y, 0.0f)
+	}
+
+	def reset() {
+		this.yspeed = 0.0f
+		this.isJumping = false
+		this.x = love.graphics.getWidth() / 2.0f - this.width / 2.0f
+		this.y = love.graphics.getHeight() - this.height / 1.1f
+	}
+
+	def draw() {
+		love.graphics.draw(this.image, this.x, this.y)
+	}
+
+	def jump() {
+		if (this.isJumping == false) {
+			this.yspeed = -600.0f
+			this.isJumping = true
+		}
+	}
+
+	def update(delta) {
+		if (this.isJumping == true) {
+			this.y = this.y + this.yspeed * delta
+			this.yspeed = this.yspeed + 980.7f * delta
+			if (this.y > love.graphics.getHeight()) {
+				this.reset()
+			}
+		}
+		else {
+			this.x = this.platform.x
+			this.y = this.platform.y
+		}
+	}
+
+	def joystickpressed(button) {
+		this.jump()
+	}
+}

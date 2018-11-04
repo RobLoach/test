@@ -1,0 +1,36 @@
+class GameState {
+
+	def GameState() {
+	}
+
+	def enter() {
+		// Nothing.
+	}
+
+	def exit() {
+		// Nothing.
+	}
+
+	def draw() {
+		sheep.draw()
+
+		for (platform : platforms) {
+			platform.draw()
+		}
+	}
+
+	def update(delta) {
+		sheep.update(delta)
+
+		for (platform : platforms) {
+			platform.update(delta)
+		}
+	}
+
+	def load() {
+		// Nothing.
+	}
+	def joystickpressed(button) {
+		sheep.joystickpressed(button)
+	}
+}

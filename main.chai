@@ -1,0 +1,36 @@
+require("Platform")
+require("Sheep")
+require("StateMachine")
+require("MainMenuState")
+require("GameState")
+global levelHeight = 50.0f
+
+def load() {
+	love.graphics.setBackgroundColor(135, 206, 250)
+	global resources = [
+		"platform": love.graphics.newImage("Resources/Platform.png"),
+		"sheep": love.graphics.newImage("Resources/Sheep.png"),
+		"logo": love.graphics.newImage("Resources/Logo.png")
+	]
+
+	global sheep = Sheep()
+	global platforms = List()
+	platforms.push_back(Platform(100.0f, 100.0f, 200.0f))
+
+	global states = StateMachine()
+	states.add("menu", MainMenuState())
+	states.add("game", GameState())
+	states.set("menu")
+}
+
+def draw() {
+	states.draw()
+}
+
+def update(delta) {
+	states.update(delta)
+}
+
+def joystickpressed(joy, button) {
+	states.joystickpressed(button)
+}
