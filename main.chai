@@ -15,7 +15,6 @@ def load() {
 
 	global sheep = Sheep()
 	global platforms = List()
-	platforms.push_back(Platform(100.0f, 100.0f, 200.0f))
 
 	global states = StateMachine()
 	states.add("menu", MainMenuState())

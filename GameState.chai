@@ -5,6 +5,14 @@ class GameState {
 
 	def enter() {
 		// Nothing.
+		this.setupPlatforms()
+	}
+
+	def setupPlatforms() {
+		platforms.clear()
+		platforms.push_back(Platform(1, 100.0f, 100.0f, 200.0f))
+		platforms.push_back(Platform(2, 100.0f, 200.0f, 200.0f))
+		platforms.push_back(Platform(3, 100.0f, 300.0f, 200.0f))
 	}
 
 	def exit() {

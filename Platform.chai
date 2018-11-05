@@ -1,9 +1,12 @@
 class Platform {
-	def Platform(x, y, xspeed) {
+	def Platform(index, x, y, xspeed) {
 		this.image := resources["platform"]
+		this.index = index
 		this.x = x
 		this.y = y
 		this.xspeed = xspeed
+		this.height = this.image.getHeight()
+		this.width = this.image.getWidth()
 	}
 
 	def draw() {
